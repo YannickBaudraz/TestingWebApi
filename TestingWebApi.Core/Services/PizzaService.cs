@@ -15,6 +15,7 @@ public class PizzaService
             new(Id: 3, Name: "Pepperoni"),
             new(Id: 4, Name: "Hawaiian"),
             new(Id: 5, Name: "Meat Lovers"),
+            new(Id: 6, Name: "Seven Cheese", true)
         };
     }
 

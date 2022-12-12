@@ -14,6 +14,7 @@
     <ItemGroup>
         <InternalsVisibleTo Include="TestingWebApi.IntegrationTests" />
         <InternalsVisibleTo Include="TestingWebApi.NUnitIntegrationTests" />
+        <InternalsVisibleTo Include="TestingWebApi.XUnitIntegrationTests" />
     </ItemGroup>
 
 </Project>

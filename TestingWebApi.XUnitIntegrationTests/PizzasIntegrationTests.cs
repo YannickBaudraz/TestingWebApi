@@ -78,7 +78,7 @@ public sealed class PizzasIntegrationTests : IClassFixture<WebApplicationFactory
         const int pizzaId = 6;
         var request = new HttpRequestMessage(HttpMethod.Get, $"/pizzas/{pizzaId}");
 
-        var expectedPizza = new Pizza(pizzaId, "One hundred Cheese", true);
+        var expectedPizza = new Pizza(pizzaId, "One hundred Cheese");
 
         // When
         HttpResponseMessage response = await _httpClient.SendAsync(request);

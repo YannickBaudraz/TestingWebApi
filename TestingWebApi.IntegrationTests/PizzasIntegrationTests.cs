@@ -9,13 +9,13 @@ namespace TestingWebApi.IntegrationTests;
 [TestClass]
 public class PizzasIntegrationTests
 {
-    private WebApplicationFactory<Program> _factory = null!;
+    private WebApplicationFactory<Startup> _factory = null!;
     private HttpClient _httpClient = null!;
 
     [TestInitialize]
     public void TestInitialize()
     {
-        _factory = new WebApplicationFactory<Program>();
+        _factory = new WebApplicationFactory<Startup>();
         _httpClient = _factory.CreateClient();
     }
 
@@ -45,7 +45,7 @@ public class PizzasIntegrationTests
         var requestUri = $"/pizzas/{pizzaId}";
         var request = new HttpRequestMessage(httpMethod, requestUri);
 
-        var expectedPizza = new Pizza(6, "Seven Cheese", true);
+        var expectedPizza = new Pizza(pizzaId, "Seven Cheese", true);
 
         // When
         HttpResponseMessage response = await _httpClient.SendAsync(request);
@@ -69,6 +69,23 @@ public class PizzasIntegrationTests
 
         // Then
         Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
+    }
+    
+    [TestMethod]
+    public async Task DemonstrateAssertionError()
+    {
+        // Given
+        const int pizzaId = 6;
+        var request = new HttpRequestMessage(HttpMethod.Get, $"/pizzas/{pizzaId}");
+
+        var expectedPizza = new Pizza(pizzaId, "One hundred Cheese");
+
+        // When
+        HttpResponseMessage response = await _httpClient.SendAsync(request);
+
+        // Then
+        var pizza = await response.Content.ReadFromJsonAsync<Pizza>();
+        Assert.AreEqual(expectedPizza, pizza);
     }
 
     [TestCleanup]

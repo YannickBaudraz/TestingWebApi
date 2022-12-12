@@ -11,10 +11,4 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     </ItemGroup>
 
-    <ItemGroup>
-        <InternalsVisibleTo Include="TestingWebApi.IntegrationTests" />
-        <InternalsVisibleTo Include="TestingWebApi.NUnitIntegrationTests" />
-        <InternalsVisibleTo Include="TestingWebApi.XUnitIntegrationTests" />
-    </ItemGroup>
-
 </Project>

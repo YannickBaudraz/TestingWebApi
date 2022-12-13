@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingWebApi.NUnitIntegrat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingWebApi.XUnitIntegrationTests", "TestingWebApi.XUnitIntegrationTests\TestingWebApi.XUnitIntegrationTests.csproj", "{992A4A92-E499-4267-897C-2CEBEF21FBF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingWebApi.UnitTests", "TestingWebApi.UnitTests\TestingWebApi.UnitTests.csproj", "{B7B36785-4CF7-4FA8-82B7-673F6BE9E832}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{992A4A92-E499-4267-897C-2CEBEF21FBF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{992A4A92-E499-4267-897C-2CEBEF21FBF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{992A4A92-E499-4267-897C-2CEBEF21FBF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B36785-4CF7-4FA8-82B7-673F6BE9E832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B36785-4CF7-4FA8-82B7-673F6BE9E832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B36785-4CF7-4FA8-82B7-673F6BE9E832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B36785-4CF7-4FA8-82B7-673F6BE9E832}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

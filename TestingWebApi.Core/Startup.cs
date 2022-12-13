@@ -1,4 +1,5 @@
-﻿using TestingWebApi.Core.Services;
+﻿using TestingWebApi.Core.repositories;
+using TestingWebApi.Core.Services;
 
 namespace TestingWebApi.Core;
 
@@ -17,7 +18,8 @@ public class Startup
 
         services.AddEndpointsApiExplorer()
                 .AddSwaggerGen()
-                .AddSingleton<PizzaService>();
+                .AddSingleton<PizzaService>()
+                .AddSingleton<PizzaRepository>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -1,25 +1,18 @@
 ﻿using TestingWebApi.Core.Models;
+using TestingWebApi.Core.repositories;
 
 namespace TestingWebApi.Core.Services;
 
 public class PizzaService
 {
-    private List<Pizza> Pizzas { get; }
+    private readonly PizzaRepository _pizzaRepository;
 
-    public PizzaService()
+    public PizzaService(PizzaRepository pizzaRepository)
     {
-        Pizzas = new List<Pizza>
-        {
-            new(Id: 1, Name: "Classic Italian"),
-            new(Id: 2, Name: "Veggie", IsGlutenFree: true),
-            new(Id: 3, Name: "Pepperoni"),
-            new(Id: 4, Name: "Hawaiian"),
-            new(Id: 5, Name: "Meat Lovers"),
-            new(Id: 6, Name: "Seven Cheese", true)
-        };
+        _pizzaRepository = pizzaRepository;
     }
 
-    public List<Pizza> GetAll() => Pizzas;
+    public List<Pizza> GetAll() => _pizzaRepository.FindAll();
 
-    public Pizza? Get(int id) => Pizzas.FirstOrDefault(p => p.Id == id);
+    public Pizza? Get(int id) => _pizzaRepository.Find(id);
 }

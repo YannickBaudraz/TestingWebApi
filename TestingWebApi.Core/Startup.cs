@@ -18,8 +18,8 @@ public class Startup
 
         services.AddEndpointsApiExplorer()
                 .AddSwaggerGen()
-                .AddSingleton<PizzaService>()
-                .AddSingleton<PizzaRepository>();
+                .AddSingleton<IPizzaService, PizzaService>()
+                .AddSingleton<IPizzaRepository, PizzaRepository>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

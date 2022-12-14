@@ -8,14 +8,18 @@ namespace TestingWebApi.Core.Controllers;
 /// Controller for the <see cref="Pizza"/> model.
 /// </summary>
 /// <seealso href="https://learn.microsoft.com/en-us/aspnet/core/web-api/advanced/conventions?view=aspnetcore-7.0">Naming conventions</seealso>
+/// <seealso href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.defaultapiconventions?view=aspnetcore-7.0">Naming conventions methods</seealso>
 [Route("[controller]")]
 [ApiController]
 [ApiConventionType(typeof(DefaultApiConventions))]
 public class PizzasController : ControllerBase
 {
-    private readonly PizzaService _pizzaService;
+    private readonly IPizzaService _pizzaService;
 
-    public PizzasController(PizzaService pizzaService) => _pizzaService = pizzaService;
+    public PizzasController(IPizzaService pizzaService)
+    {
+        _pizzaService = pizzaService;
+    }
 
     [HttpGet]
     public ActionResult<List<Pizza>> Get() => _pizzaService.GetAll();

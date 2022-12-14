@@ -2,7 +2,7 @@
 
 namespace TestingWebApi.Core.repositories;
 
-public class PizzaRepository
+public class PizzaRepository : IPizzaRepository
 {
     private List<Pizza> Pizzas { get; }
 
@@ -18,8 +18,8 @@ public class PizzaRepository
             new(Id: 6, Name: "Seven Cheese", true)
         };
     }
-    
-    public List<Pizza> FindAll() => Pizzas;
+
+    public List<Pizza> Find() => Pizzas;
 
     public Pizza? Find(int id) => Pizzas.FirstOrDefault(p => p.Id == id);
 }

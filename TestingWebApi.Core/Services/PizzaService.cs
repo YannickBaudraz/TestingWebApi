@@ -3,16 +3,16 @@ using TestingWebApi.Core.repositories;
 
 namespace TestingWebApi.Core.Services;
 
-public class PizzaService
+public class PizzaService: IPizzaService
 {
-    private readonly PizzaRepository _pizzaRepository;
+    private readonly IPizzaRepository _pizzaRepository;
 
-    public PizzaService(PizzaRepository pizzaRepository)
+    public PizzaService(IPizzaRepository pizzaRepository)
     {
         _pizzaRepository = pizzaRepository;
     }
 
-    public List<Pizza> GetAll() => _pizzaRepository.FindAll();
+    public List<Pizza> GetAll() => _pizzaRepository.Find();
 
     public Pizza? Get(int id) => _pizzaRepository.Find(id);
 }
